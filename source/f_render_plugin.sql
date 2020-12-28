@@ -10,7 +10,7 @@ begin
 for reg in (
    select 
  region_name,
- static_id,
+ NVL(static_id,'R'||region_id) as static_id,
  query_type_code,
  nvl(table_name,region_source) as source,
  where_clause,
@@ -19,7 +19,7 @@ from apex_application_page_regions
 where application_id = :APP_ID
 and page_id = :APP_PAGE_ID
 and source_type not in ('Breadcrumb')
-and static_id is not null
+--and static_id is not null
 
 )
 LOOP 
