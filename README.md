@@ -19,6 +19,9 @@ Inspector is a lightweight dynamic action plugin for Oracle Application Express 
 </p>
 </div>
 
+## Demo
+
+You can find demo application [here](https://apex.oracle.com/pls/apex/f?p=29374) 
 
 ## Supported objects
 
@@ -36,7 +39,7 @@ Button | 🚧 | 🚧 | 🚧
 3. **Add dynamic action** with type "Inspector", recommended use is page load dynamic action on page 0 (affects all the pages)
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change 👍
 
 
 ## License 📝
