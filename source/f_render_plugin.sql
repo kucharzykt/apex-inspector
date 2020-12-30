@@ -12,8 +12,8 @@ for reg in (
  region_name,
  NVL(static_id,'R'||region_id) as static_id,
  query_type_code,
- nvl(table_name,region_source) as source,
- where_clause,
+ replace(replace(replace(nvl(table_name,region_source),chr(39),'¨'),chr(10),' '),chr(13),' ') as source,
+ replace(replace(replace(where_clause,chr(39),'¨'),chr(10),' '),chr(13),' ') as where_clause,
  source_type 
 from apex_application_page_regions
 where application_id = :APP_ID
