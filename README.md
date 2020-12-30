@@ -33,7 +33,7 @@ Inspector is a lightweight dynamic action plugin that adds inspect button for re
 ### Supported objects
 
 Object | Basic info | Processes | Dynamic actions
------------- | -------------
+------------ | ------------- | ------------- | -------------
 Region | ✅ | 🚧 | 🚧
 Button | 🚧 | 🚧 | 🚧
 ... | | |
