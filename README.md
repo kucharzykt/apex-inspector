@@ -1,22 +1,12 @@
-# apex-inspector
-Oracle APEX Inspector
-
-## Roadmap - TODO
-
-> - REGION without static ID
-> - ?REGION processes
-> - ?REGION dynamic actions
-> - BUTTON everything
-
 
   <div align="center">
-<h1> Oracle APEX 🔎Inspector </h1>
+<h1> 🔎Inspector </h1>
 </div>
 
 
 ## What is Inspector
 
-Inspector is a lightweight dynamic action plugin that adds inspect button for regions and buttons. Inspect button opens card with informations like static id, types, querries and others.
+Inspector is a lightweight dynamic action plugin for Oracle Application Express that adds inspect button for regions and buttons. Inspect button opens card with informations like static id, types, querries, processes and others.
 <div style="float: left">
   <p align="center">
   <img src="others/inspector_closed.png" width="800" />
