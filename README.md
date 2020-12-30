@@ -6,7 +6,7 @@
 
 ## What is Inspector
 
-Inspector is a lightweight dynamic action plugin for Oracle Application Express that adds inspect button for regions and buttons. Inspect button opens card with informations like static id, types, querries, processes and others.
+Inspector is a lightweight dynamic action plugin for Oracle Application Express that adds an inspect button for regions and buttons. Inspect button opens the card with information like static id, types, querries, processes, and others.
 <div style="float: left">
   <p align="center">
   <img src="others/inspector_closed.png" width="800" />
