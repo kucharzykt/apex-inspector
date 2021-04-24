@@ -9,7 +9,7 @@ module.exports = {
   },
   entry: {
     'output/inspector.js': [
-      path.resolve(__dirname, 'source/RowCount.js'),
+      path.resolve(__dirname, 'source/Region.js'),
       path.resolve(__dirname, 'source/Generator.js')
     ]
   },

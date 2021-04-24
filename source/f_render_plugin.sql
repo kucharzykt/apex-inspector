@@ -49,6 +49,6 @@ LOOP
   END IF;
 END LOOP;
   v_region_data := '{"region":['||v_region_data||']}';
-  v_return.javascript_function := 'inspector.init('''||v_region_data||''')';
+  v_return.javascript_function := 'Generator.init('''||v_region_data||''')';
   return v_return;
 end;

@@ -1,6 +1,6 @@
 var inspector = {
 	init: function(pi_data) {
-		console.log('*******init');
+		console.log('*******init'); 
 		console.log(pi_data);
 		RowCount.add();
 		try {
