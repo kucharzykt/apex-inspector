@@ -2,6 +2,7 @@ var inspector = {
 	init: function(pi_data) {
 		console.log('*******init');
 		console.log(pi_data);
+		RowCount.add();
 		try {
 			console.log('*******REGIONS GENERATION, REGIONS:')
 			var regions = (JSON.parse(pi_data)).region;

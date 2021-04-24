@@ -1,0 +1,19 @@
+{
+  "name": "apex-inspector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "output/inspector.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "watch": "webpack --watch"
+  },
+  "keywords": [],
+  "author": "tkucharzyk",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {}
+}
