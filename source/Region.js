@@ -1,3 +1,7 @@
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+import { renderToStaticMarkup } from "react-dom/server";
+*/
 Region = (function() {
 
 	var addRegion = function(pi_region) {
@@ -49,3 +53,50 @@ Region = (function() {
 		addRegion: addRegion
 	};
 })();
+/*
+function RegionData(props) {
+    return (
+        <div id="region-data">
+            <div class="item-parent">
+                <label for="REGION_NAME" id="REGION_NAME_LABEL" class="item-div1 t-Form-label">Region name</label>
+                <input type="text" id="REGION_NAME" name="REGION_NAME" class="item-div2 text_field apex-item-text"
+                    value="Zamestnanci3" size="30"></input>
+            </div>
+            <div class="item-parent">
+                <label for="SOURCE_TYPE" id="SOURCE_TYPE_LABEL" class="item-div1 t-Form-label">Source type</label>
+                <input type="text" id="SOURCE_TYPE" name="SOURCE_TYPE" class="item-div2 text_field apex-item-text"
+                    value="Interactive Grid" size="30"></input>
+            </div>
+            <div class="item-parent">
+                <label for="STATIC_ID" id="STATIC_ID_LABEL" class="item-div1 t-Form-label">Static ID</label>
+                <input type="text" id="STATIC_ID" name="STATIC_ID" class="item-div2 text_field apex-item-text"
+                    value="zam3" size="30"></input>
+            </div>
+            <div class="item-parent">
+                <label for="QUERY_TYPE_CODE" id="QUERY_TYPE_CODE_LABEL" class="item-div1 t-Form-label">Query type
+                    code</label>
+                <input type="text" id="QUERY_TYPE_CODE" name="QUERY_TYPE_CODE"
+                    class="item-div2 text_field apex-item-text" value="SQL" size="30"></input>
+            </div>
+            <div class="item-parent">
+                <label for="SOURCE" id="SOURCE_LABEL" class="item-div1 t-Form-label">Source</label>
+                <div class="apex-item-group apex-item-group--textarea">
+                    <textarea name="SOURCE" rows="5" cols="30" id="SOURCE" class="item-div2 textarea apex-item-textarea"
+                        data-resizable="true" style="resize: both;">select * from emp2_basic_info where id is not null
+                                </textarea>
+                </div>
+            </div>
+            <div class="item-parent">
+                <label for="WHERE_CLAUSE" id="WHERE_CLAUSE_LABEL" class="item-div1 t-Form-label">Where clause</label>
+                <input type="text" id="WHERE_CLAUSE" name="WHERE_CLAUSE" class="item-div2 text_field apex-item-text" value="null" size="30"></input>
+            </div>
+        </div>
+    );
+  }
+
+  function renderRegion() {
+	   let html = renderToStaticMarkup(<RegionData />);
+	
+		return html;
+	}
+	*/
