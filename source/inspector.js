@@ -39,17 +39,18 @@ function generateFields(pi_field_name, pi_field_value) {
 }
 function generateBasicRegion(pi_region) {
     try {
+        var regionHeader = 'Basic Region Informations';
         //Basic Fields Region
         var basic_fields = pi_region.basic_fields;
         basic_fields.sort(function (a, b) {
             return a.field_order - b.field_order;
         });
-        var basic_fields_region_html = `<div id="basic_${pi_region.static_id}"></div>`;
+        var basic_fields_region_html = `<div><span style="padding-left: 20px;">${regionHeader}</span><div id="basic_${pi_region.static_id}"></div>`;
         for (var j = 0; j < basic_fields.length; j++) {
             var field = basic_fields[j];
             basic_fields_region_html += generateFields(field.field_name, field.field_value);
         }
-        basic_fields_region_html += '</div>';
+        basic_fields_region_html += '</div></div>';
 
         return basic_fields_region_html;
     } catch (e) {
@@ -92,7 +93,7 @@ function generateRegionInspectorBody(pi_region_static_id,pi_region_name,pi_basic
                 </div>
             </div>
         </div>`;
-        
+
         return field_html;
     } catch (e) {
         console.log(e);
