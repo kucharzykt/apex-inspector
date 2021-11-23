@@ -1,45 +1,21 @@
 var inspector = {
     init: function (pi_data) {
         try {
-            console.log('*******init');
-            console.log(pi_data);
             //create html region with text fields from json object
-            /*
-            {"regions":[{"region_name":"Apex Inspector Demo","static_id":"R9176609736966920","template":"Hero","query_type_code":null,"source":null,"where_clause":null,"source_type":"HTML/Text"},{"region_name":"Countries","static_id":"R9184925740051801","template":"Interactive Report","query_type_code":"SQL","source":"select COUNTRY_ID,        NAME,        NATIONALITY,        COUNTRY_CODE,        ISO_ALPHA2,        CAPITAL,        POPULATION,        AREA_KM2,        REGION_ID,        SUB_REGION_ID,        INTERMEDIATE_REGION_ID,        ORGANIZATION_REGION_ID   from EBA_COUNTRIES","where_clause":null,"source_type":"Interactive Grid"}]}
-             */
             var regions = (JSON.parse(pi_data)).regions;
-            console.log('regions');
-            console.log(regions);
             //LOOP REGIONS
             for (var i = 0; i < regions.length; i++) {
                 var region = regions[i];
-                console.log(region);
-                //create html region with text fields from json object
-                var region_name = region.region_name;
-                var region_template = region.template;
-                var region_query_type_code = region.query_type_code;
-                var region_source = region.source;
-                var region_where_clause = region.where_clause;
-                var region_source_type = region.source_type;
-                var region_html = `<div id="${region.static_id}"></div>`;
-                region_html += '<div class="region_name">' + region_name + '</div>';
-                region_html += '<div class="region_template">' + region_template + '</div>';
-                region_html += '<div class="region_query_type_code">' + region_query_type_code + '</div>';
-                region_html += '<div class="region_source">' + region_source + '</div>';
-                region_html += '<div class="region_where_clause">' + region_where_clause + '</div>';
-                region_html += '<div class="region_source_type">' + region_source_type + '</div>';
-                region_html += '<div class="t-Form-fieldContainer t-Form-fieldContainer--floatingLabel apex-item-wrapper apex-item-wrapper--text-field js-show-label"id="P1_TEXT_FIELD_CONTAINER"><div class="t-Form-labelContainer"><label for="P1_TEXT_FIELD" id="P1_TEXT_FIELD_LABEL" class="t-Form-label">Text Field</label></div><div class="t-Form-inputContainer"><div class="t-Form-itemWrapper"><input type="text" id="P1_TEXT_FIELD" name="P1_TEXT_FIELD"class="text_field apex-item-text" value="Test Text 123" size="30"></div><spanid="P1_TEXT_FIELD_error_placeholder" class="a-Form-error"></span></div></div>';
-                region_html += generateFields(region.region_name, region.source);
-                region_html += '</div>';
-                //add html region to page
-                $('#'+region.static_id+'').append(region_html);
+                //Basic Region
+                var basic_region_html = generateBasicRegion(region);
+                //Main Region Body
+                var regionInspectorBody = generateRegionInspectorBody(`inspector_body${region.static_id}`, region.region_name, basic_region_html);
+                $('#'+region.static_id+'').append(regionInspectorBody);
             }
         } catch (e) {
             console.log(e);
         }
-
     }
-    
 }
 function generateFields(pi_field_name, pi_field_value) {
     try {
@@ -47,7 +23,7 @@ function generateFields(pi_field_name, pi_field_value) {
         <div class="t-Form-fieldContainer t-Form-fieldContainer--floatingLabel apex-item-wrapper apex-item-wrapper--text-field js-show-label"
             id="${pi_field_name}_CONTAINER">
             <div class="t-Form-labelContainer">
-                <label for="${pi_field_name}" id="${pi_field_name}_LABEL" class="t-Form-label">Text Field</label>
+                <label for="${pi_field_name}" id="${pi_field_name}_LABEL" class="t-Form-label">${pi_field_name}</label>
             </div>
             <div class="t-Form-inputContainer">
                 <div class="t-Form-itemWrapper"><input type="text" id="${pi_field_name}" name="${pi_field_name}"
@@ -56,6 +32,67 @@ function generateFields(pi_field_name, pi_field_value) {
             </div>
         </div>`;
 
+        return field_html;
+    } catch (e) {
+        console.log(e);
+    }
+}
+function generateBasicRegion(pi_region) {
+    try {
+        //Basic Fields Region
+        var basic_fields = pi_region.basic_fields;
+        basic_fields.sort(function (a, b) {
+            return a.field_order - b.field_order;
+        });
+        var basic_fields_region_html = `<div id="basic_${pi_region.static_id}"></div>`;
+        for (var j = 0; j < basic_fields.length; j++) {
+            var field = basic_fields[j];
+            basic_fields_region_html += generateFields(field.field_name, field.field_value);
+        }
+        basic_fields_region_html += '</div>';
+
+        return basic_fields_region_html;
+    } catch (e) {
+        console.log(e);
+    }
+}
+function generateRegionInspectorBody(pi_region_static_id,pi_region_name,pi_basic_region, pi_processes_region, pi_dynamic_a_region) {
+    try {
+        var field_html = `
+        <div role="region" aria-label="${pi_region_name}"
+            class="t-Region t-Region--hideShow t-Region--scrollBody lto${pi_region_static_id}_0 a-Collapsible js-apex-region is-collapsed"
+            id="${pi_region_static_id}">
+            <div class="t-Region-header">
+                <div class="t-Region-headerItems t-Region-headerItems--controls">
+                    <button
+                        class="t-Button t-Button--icon t-Button--hideShow" type="button"
+                        aria-labelledby="a_Collapsible1_${pi_region_static_id}_heading"
+                        aria-controls="a_Collapsible1_${pi_region_static_id}_content" aria-expanded="false"
+                        onClick="
+                        if ($(this).parent().parent().parent().hasClass('is-expanded') == true){
+                            $(this).parent().parent().parent().addClass('is-collapsed');
+                            $(this).parent().parent().parent().removeClass('is-expanded');
+                        }else{
+                            $(this).parent().parent().parent().addClass('is-expanded');
+                            $(this).parent().parent().parent().removeClass('is-collapsed');
+                        }">
+                        <span
+                            class="a-Icon a-Collapsible-icon" aria-hidden="true">
+                        </span>
+                    </button>
+                </div>
+                <div class="t-Region-headerItems t-Region-headerItems--title">
+                    <h2 class="t-Region-title a-Collapsible-heading" data-apex-heading=""
+                        id="a_Collapsible1_${pi_region_static_id}_heading">${pi_region_name} Inspector</h2>
+                </div>
+            </div>
+            <div class="t-Region-bodyWrap">
+                <div class="t-Region-body a-Collapsible-content" id="a_Collapsible1_${pi_region_static_id}_content" aria-hidden="true">
+                    ${pi_basic_region} ${pi_processes_region} ${pi_dynamic_a_region}
+                </div>
+            </div>
+        </div>`;
+        
         return field_html;
     } catch (e) {
         console.log(e);
