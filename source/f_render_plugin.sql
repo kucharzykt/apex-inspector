@@ -30,7 +30,7 @@ begin
             ,to_clob(process_name) as process_name
             ,to_clob(process_point) as process_point
             ,to_clob(process_type) as process_type
-            ,to_clob(process_source) as process_source
+            ,to_clob(replace(replace(replace(process_source,chr(39),'¨'),chr(10),' '),chr(13),' ')) as process_source
             ,to_clob(when_button_pressed) as when_button_pressed
             from apex_application_page_proc
             where application_id = :APP_ID

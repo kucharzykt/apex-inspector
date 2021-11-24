@@ -116,7 +116,7 @@ function generateRegionInspectorBody(pi_region_static_id,pi_region_name,pi_basic
                 </div>
                 <div class="t-Region-headerItems t-Region-headerItems--title">
                     <h2 class="t-Region-title a-Collapsible-heading" data-apex-heading=""
-                        id="a_Collapsible1_${pi_region_static_id}_heading">${pi_region_name} Inspector</h2>
+                        id="a_Collapsible1_${pi_region_static_id}_heading">🔎 ${pi_region_name} Inspector</h2>
                 </div>
             </div>
             <div class="t-Region-bodyWrap">

@@ -27,7 +27,7 @@ You can find demo application [here](https://apex.oracle.com/pls/apex/f?p=29374)
 
 Object | Basic info | Processes | Dynamic actions
 ------------ | ------------- | ------------- | -------------
-Region | ✅ | 🚧 | 🚧
+Region | ✅ | ✅ | 🚧
 Button | 🚧 | 🚧 | 🚧
 ... | | |
 
