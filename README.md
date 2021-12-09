@@ -21,7 +21,7 @@ Inspector is a lightweight dynamic action plugin for Oracle Application Express 
 
 ## Demo
 
-You can find demo application [here](https://apex.oracle.com/pls/apex/f?p=29374) 
+You can find demo application [here](https://g3a2218d648af8f-dby93kn.adb.eu-frankfurt-1.oraclecloudapps.com/ords/r/tomcio/apex-inspector-demo/home) 
 
 ## Supported objects
 
