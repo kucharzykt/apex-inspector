@@ -36,7 +36,7 @@ Button | 🚧 | 🚧 | 🚧
 
 1. **Download** the plugin 
 2. **Import** file dynamic_action_plugin_apex_inspector.sql into your application
-3. **Add dynamic action** with type "Inspector", recommended use is page load dynamic action on page 0 (affects all the pages)
+3. **Add dynamic action** with type "Apex Inspector", recommended use is page load dynamic action on page 0 (affects all the pages)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change 👍
